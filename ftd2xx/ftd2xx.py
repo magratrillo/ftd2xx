@@ -349,12 +349,12 @@ class FTD2XX(object):
 ##            version = 2
 ##        else:
 ##            version = 0
-        progdata.Signature1 = _ft.DWORD(0)
-        progdata.Signature2 = _ft.DWORD(0xffffffff)
-        progdata.Version = _ft.DWORD(2)
+#        progdata.Signature1 = _ft.DWORD(0)
+#        progdata.Signature2 = _ft.DWORD(0xffffffff)
+#        progdata.Version = _ft.DWORD(2)
         call_ft(_ft.FT_EE_Program, self.handle, progdata)
         return None
-        
+
     def eeRead(self):
         """Get the program information from the EEPROM"""
 ##        if self.devInfo['type'] == 4:
@@ -364,8 +364,8 @@ class FTD2XX(object):
 ##        else:
 ##            version = 0
         progdata = _ft.ft_program_data(
-                      Signature1=0, Signature2=0xffffffff,
-                      Version=2,
+#                      Signature1=0, Signature2=0xffffffff,
+#                      Version=2,
                       Manufacturer = c.cast(c.c_buffer(256), c.c_char_p),
                       ManufacturerId = c.cast(c.c_buffer(256), c.c_char_p),
                       Description = c.cast(c.c_buffer(256), c.c_char_p),
